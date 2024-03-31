@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.application.sims4.model.Pack;
-import com.application.sims4.repository.CategoryPackRepository;
 import com.application.sims4.repository.PackRepository;
 import com.application.sims4.service.ServicePack;
 import com.application.sims4.service.dto.PackDto;
@@ -15,11 +14,10 @@ import com.application.sims4.service.dto.PackDto;
 public class ServicePackImpl implements ServicePack {
 	
 	@Autowired 
-	PackRepository packRepo;
+	private PackRepository packRepo;
 	@Autowired
-	CategoryPackRepository categoryRepo;
-	@Autowired
-	ModelMapper modelMapper;
+	private ModelMapper modelMapper;
+	
 
 	@Override
 	public List<PackDto> getAll() {
