@@ -7,7 +7,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.application.sims4.service.ServicePack;
+import com.application.sims4.service.ServiceWorld;
 import com.application.sims4.service.impl.ServicePackImpl;
+import com.application.sims4.service.impl.ServiceWorldImpl;
 
 @Configuration
 @EnableWebMvc
@@ -19,8 +21,13 @@ public class WebConfig implements WebMvcConfigurer {
     }
     
     @Bean
-    public ServicePack servicePack() {
+    ServicePack servicePack() {
         return new ServicePackImpl();
+    }
+    
+    @Bean
+    ServiceWorld serviceWorld() {
+        return new ServiceWorldImpl();
     }
     
 }
