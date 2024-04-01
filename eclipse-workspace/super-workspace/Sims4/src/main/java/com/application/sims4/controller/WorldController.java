@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,7 +14,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.application.sims4.service.ServiceWorld;
 import com.application.sims4.service.dto.WorldDto;
 
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/world")
@@ -31,15 +29,15 @@ public class WorldController {
 	
 	@GetMapping("/{id}")
 	public WorldDto getById(@PathVariable Integer id) {
-		WorldDto pack = serviceWorld.getById(id);
-		if (pack == null)
+		WorldDto world = serviceWorld.getById(id);
+		if (world == null)
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		return pack;
+		return world;
 	}
 	
 	@PostMapping
-	public WorldDto add(@RequestBody @Valid WorldDto packDto) {
-		return serviceWorld.addPack(packDto);
+	public WorldDto addWorld(WorldDto worldDto) {
+		return serviceWorld.addWorld(worldDto);
 	}
 
 }

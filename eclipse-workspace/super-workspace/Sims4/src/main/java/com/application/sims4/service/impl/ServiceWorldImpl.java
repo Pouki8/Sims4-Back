@@ -5,12 +5,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.application.sims4.model.World;
 import com.application.sims4.repository.WorldRepository;
 import com.application.sims4.service.ServiceWorld;
 import com.application.sims4.service.dto.WorldDto;
 
+@Service
 public class ServiceWorldImpl implements ServiceWorld {
 	
 	@Autowired
@@ -31,7 +33,7 @@ public class ServiceWorldImpl implements ServiceWorld {
 	}
 
 	@Override
-	public WorldDto addPack(WorldDto worldDto) {
+	public WorldDto addWorld(WorldDto worldDto) {
 		World worldModel = modelMapper.map(worldDto, World.class);
 		return modelMapper.map(worldRepo.save(worldModel), WorldDto.class);
 	}

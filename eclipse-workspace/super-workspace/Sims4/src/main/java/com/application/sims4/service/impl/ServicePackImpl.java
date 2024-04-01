@@ -5,12 +5,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.application.sims4.model.Pack;
 import com.application.sims4.repository.PackRepository;
 import com.application.sims4.service.ServicePack;
 import com.application.sims4.service.dto.PackDto;
 
+@Service
 public class ServicePackImpl implements ServicePack {
 	
 	@Autowired 

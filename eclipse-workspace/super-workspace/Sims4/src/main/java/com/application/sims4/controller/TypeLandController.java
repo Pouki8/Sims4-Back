@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.application.sims4.service.ServicePack;
-import com.application.sims4.service.dto.PackDto;
+import com.application.sims4.service.ServiceTypeLand;
+import com.application.sims4.service.dto.TypeLandDto;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/pack")
-public class PackController {
+@RequestMapping("/type")
+public class TypeLandController {
 	
 	@Autowired(required = true)
-	private ServicePack servicePack;
+	private ServiceTypeLand serviceTypeLand;
 	
 	@GetMapping
-	public List<PackDto> getAllByLibelle() {
-		return servicePack.getAll();	
+	public List<TypeLandDto> getAllByLibelle() {
+		return serviceTypeLand.getAll();
 	}
 	
-	@GetMapping("/{id}")
-	public PackDto getById(@PathVariable Integer id) {
-		PackDto pack = servicePack.getById(id);
-		if (pack == null)
+	@GetMapping("{id}")
+	public TypeLandDto getById(@PathVariable Integer id) {
+		TypeLandDto type = serviceTypeLand.getById(id);
+		if (type == null)
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		return pack;
+		return type;
 	}
 	
 	@PostMapping
-	public PackDto add(@RequestBody @Valid PackDto packDto) {
-		return servicePack.addPack(packDto);
+	public TypeLandDto add(@RequestBody @Valid TypeLandDto typeLandDto) {
+		return serviceTypeLand.addCategorie(typeLandDto);
 	}
 	
     @GetMapping("/count")
-    public int countPack() {
-        return servicePack.countPack();
+    public int countTypeLand() {
+        return serviceTypeLand.countTypeLand();
     }
 
 }

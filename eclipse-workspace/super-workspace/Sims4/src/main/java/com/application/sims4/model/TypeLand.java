@@ -1,12 +1,10 @@
 package com.application.sims4.model;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor
-public class Pack {
+public class TypeLand {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +23,6 @@ public class Pack {
 	
 	@NonNull
 	@Column(unique = true)
-	private String name;
-	
-	@NonNull
-	@ManyToOne
-	private CategoryPack categoryPack;
-	
+	private String label;
 
 }

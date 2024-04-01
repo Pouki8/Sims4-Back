@@ -10,6 +10,6 @@ public interface ServiceWorld {
 	
 	WorldDto getById(Integer id);
 	
-	WorldDto addPack(WorldDto packDto);
+	WorldDto addWorld(WorldDto worldDto);
 
 }

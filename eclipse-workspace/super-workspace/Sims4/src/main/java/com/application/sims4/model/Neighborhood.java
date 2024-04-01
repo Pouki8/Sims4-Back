@@ -27,6 +27,7 @@ public class Neighborhood {
 	@NonNull
 	private String content;
 	
+	@NonNull
 	@ManyToOne
 	private World world;
 

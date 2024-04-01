@@ -1,8 +1,5 @@
 package com.application.sims4.service.dto;
 
-import java.util.List;
-
-import com.application.sims4.model.Neighborhood;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -25,8 +22,5 @@ public class WorldDto {
 	
 	@JsonProperty("packName")
 	private String packName;
-	
-	
-	private List<Neighborhood> neighborhood;
 
 }

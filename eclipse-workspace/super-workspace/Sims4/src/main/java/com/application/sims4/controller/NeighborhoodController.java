@@ -12,39 +12,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.application.sims4.service.ServicePack;
-import com.application.sims4.service.dto.PackDto;
+import com.application.sims4.service.ServiceNeighborhood;
+import com.application.sims4.service.dto.NeighborhoodDto;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/pack")
-public class PackController {
+@RequestMapping("/quartier")
+public class NeighborhoodController {
 	
 	@Autowired(required = true)
-	private ServicePack servicePack;
+	private ServiceNeighborhood serviceNeighborhood;
 	
 	@GetMapping
-	public List<PackDto> getAllByLibelle() {
-		return servicePack.getAll();	
+	public List<NeighborhoodDto> getAllByLibelle() {
+		return serviceNeighborhood.getAll();	
 	}
 	
 	@GetMapping("/{id}")
-	public PackDto getById(@PathVariable Integer id) {
-		PackDto pack = servicePack.getById(id);
-		if (pack == null)
+	public NeighborhoodDto getById(@PathVariable Integer id) {
+		NeighborhoodDto neighborhood = serviceNeighborhood.getById(id);
+		if (neighborhood == null)
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		return pack;
+		return neighborhood;
 	}
 	
 	@PostMapping
-	public PackDto add(@RequestBody @Valid PackDto packDto) {
-		return servicePack.addPack(packDto);
+	public NeighborhoodDto add(@RequestBody @Valid NeighborhoodDto neighborhoodDto) {
+		return serviceNeighborhood.addNeighborhood(neighborhoodDto);
 	}
-	
-    @GetMapping("/count")
-    public int countPack() {
-        return servicePack.countPack();
-    }
 
 }
